@@ -43,6 +43,7 @@ const Hero = () => {
           }`}
         >
           <button
+            id={`${activeClock === "Pomodoro" ? "pomodoro-active-button" : ""}`}
             onClick={() => {
               setActiveClock("Pomodoro");
               setTime(pomodoroTime);
@@ -52,7 +53,9 @@ const Hero = () => {
             Pomodoro
           </button>
           <button
+          id={`${activeClock === "ShortBreak" ? 'short-break-active-button' : ''}`}
             onClick={() => {
+              alert("Do you really want to take a break now?");
               setActiveClock("ShortBreak");
               setTime(shortBreakTime);
               setClockStart(false);
@@ -62,6 +65,9 @@ const Hero = () => {
             Short Break
           </button>
           <button
+            id={`${
+              activeClock === "LongBreak" ? "long-break-active-button" : ""
+            }`}
             onClick={() => {
               setActiveClock("LongBreak");
               setTime(longBreakTime);

@@ -24,7 +24,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --pomodoro-bg: #4C4C6D;
+  --pomodoro-bg: #212A3E;
   --pomodoro-primary-color: rgba(255, 255, 255, 1);
   --pomodoro-secondary-color: #242424;
   --short-break-primary-color: rgb(148, 148, 148);
@@ -72,7 +72,7 @@ html {
 }
 
 .my-todos {
-  transition: 1000ms ease;
+  transition: 500ms ease;
   background-color: #242424;
 }
 .my-todos h1 {
@@ -83,7 +83,7 @@ html {
 /* Applying CSS to my-todos accoriding to clock */
 
 .my-todos.pomodoro-active {
-  border-top: 3px double var(--pomodoro-primary-color);
+  border-top: 3px dashed var(--pomodoro-primary-color);
   background-color: var(--pomodoro-bg);
 }
 
@@ -131,6 +131,12 @@ html {
     height: 35vh;
   }
 }
+
+@media (orientation: portrait) and (min-width: 1760) and (max-width: 2800px) {
+  .main {
+    height: 25vh;
+  }
+}
 @media (orientation: landscape) and (max-height: 570px) {
   .main {
     height: 100vh;
@@ -153,4 +159,3 @@ html {
     font-size: 10px;
   }
 }
-

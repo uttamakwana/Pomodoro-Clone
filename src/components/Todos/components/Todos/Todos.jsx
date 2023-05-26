@@ -54,35 +54,20 @@ const Todos = () => {
   }, [title, description, priority, time]);
 
   const handleSubmit = () => {
-    if (
-      todoData.titleData !== "" &&
-      todoData.descriptionData !== "" &&
-      todoData.priorityData !== "" &&
-      todoData.timeData !== "Invalid Date" &&
-      todoData.timeData !== ""
-    ) {
+    if (todoData.titleData !== "" && todoData.descriptionData !== "") {
       setTodo([...todo, todoData]);
       setTitle("");
       setDescription("");
       setPriority("");
       setTime("");
     } else {
-      if (
-        todoData.timeData === "" &&
-        todoData.descriptionData === "" &&
-        todoData.priorityData === "" &&
-        todoData.titleData
-      ) {
-        return alert("Please enter all the details!📝");
+      if (todoData.titleData === "" && todoData.descriptionData === "") {
+        alert("Please enter all the details!📝");
       } else {
         if (todoData.titleData === "") {
-          alert("Please enter the title of todo");
-        } else if (todoData.descriptionData === "") {
-          alert("Please enter the description of todo");
-        } else if (todoData.priorityData === "") {
-          alert("Please enter the priority of your todo");
+          alert("Please enter the title of todo✍️");
         } else {
-          alert("Please enter the time of your todo");
+          alert("Please enter the description of todo✍️");
         }
       }
     }
@@ -153,63 +138,6 @@ const Todos = () => {
               Description
             </label>
           </div>
-          <div
-            className={`todo-input-container${
-              activeClock === "Pomodoro"
-                ? "pomodoro-active"
-                : activeClock === "ShortBreak"
-                ? "short-break-active"
-                : "long-break-active"
-            }`}
-          >
-            <label htmlFor="priority">Priority</label>
-            <div
-              className={`todo-input-container priority-container ${
-                activeClock === "Pomodoro"
-                  ? "pomodoro-active"
-                  : activeClock === "ShortBreak"
-                  ? "short-break-active"
-                  : "long-break-active"
-              }`}
-            >
-              <select
-                name="priority"
-                id="priority"
-                value={`${priority ? priority : "Priority"}`}
-                style={{
-                  fontWeight: "300",
-                  fontSize: "1rem",
-                  fontFamily: "Source Sans Pro",
-                }}
-                onChange={(e) => {
-                  setPriority(e.target.value);
-                }}
-              >
-                <option value="A" defaultValue={"A"}>
-                  Priority
-                </option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-              </select>
-            </div>
-          </div>
-          <div className="todo-input-container">
-            <label htmlFor="time">Time</label>
-            <input
-              type="datetime-local"
-              name="time"
-              id="time"
-              // onFocus={() => document.getElementById("time").setAttribute("type").value  = "datetime-local"}
-              // onFocus="(this.type = 'text')"
-              value={time}
-              placeholder=""
-              onChange={(e) => {
-                setTime(e.target.value);
-              }}
-            />
-          </div>
           <div className="todo-input-container">
             <button type="submit" id="submit-todo-btn" onClick={handleSubmit}>
               Submit
@@ -238,17 +166,30 @@ const Todos = () => {
       {/* Showing Todos below the add todo component */}
 
       {todo.length !== 0 ? (
-        <main className="display-todos-container">
+        <main
+          className={`display-todos-container ${
+            activeClock === "Pomodoro"
+              ? "pomodoro-active"
+              : activeClock === "ShortBreak"
+              ? "short-break-active"
+              : "long-break-active"
+          }`}
+        >
           <h1>Your Todos</h1>
           {todo.map((todo, index) => {
             return (
-              <div className="todo-container" key={todo.id}>
+              <div
+                className={`todo-container ${
+                  activeClock === "Pomodoro"
+                    ? "pomodoro-active"
+                    : activeClock === "ShortBreak"
+                    ? "short-break-active"
+                    : "long-break-active"
+                }`}
+                key={todo.id}
+              >
                 <h2>{todo.titleData}</h2>
                 <p className="todo-desc">{todo.descriptionData}</p>
-                <span>
-                  Priority : <strong>{todo.priorityData}</strong>
-                </span>
-                <p>{todo.timeData}</p>
                 <img
                   src="https://img.icons8.com/arcade/64/delete-forever.png"
                   alt="filled-trash"

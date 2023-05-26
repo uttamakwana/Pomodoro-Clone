@@ -65,7 +65,7 @@
   left: 3%;
   transform: translate(-3%, -50%);
   pointer-events: none;
-  transition: 400ms ease;
+  transition: 500ms ease;
 }
 
 .todo-input-container input,
@@ -176,6 +176,32 @@ option {
   border-radius: 0.5rem;
 }
 
+.display-todos-container.pomodoro-active {
+  /* /* margin: 0 auto; */
+  background-color: var(--pomodoro-primary-color);
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+  /* border: 1px solid white; */
+  color: black;
+}
+
+.display-todos-container.short-break-active {
+  /* /* margin: 0 auto; */
+  /* background-color: var(--short-break-primary-color); */
+  background-color: var(--short-break-secondary-color);
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+  /* border: 1px solid white; */
+  color: black;
+
+}
+
+.display-todos-container.long-break-active {
+  /* /* margin: 0 auto; */
+  background-color: var(--long-break-primary-color);
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+  /* border: 1px solid white; */
+  color: black;
+}
+
 .todo-container {
   width: 100%;
   max-width: 75%;
@@ -186,6 +212,19 @@ option {
   position: relative;
   font-family: "Source Sans Pro", sans-serif;
   /* margin: 0 auto; */
+}
+
+.todo-container.pomodoro-active{
+  background-color: var(--pomodoro-bg);
+  color: var(--pomodoro-primary-color);
+}
+.todo-container.short-break-active{
+  background-color: var(--short-break-bg);
+  color: var(--short-break-primary-color);
+}
+.todo-container.long-break-active{
+  background-color: var(--long-break-bg);
+  color: var(--long-break-primary-color);
 }
 
 .todo-container h2 {

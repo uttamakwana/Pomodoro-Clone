@@ -61,7 +61,9 @@
   color: var(--long-break-primary-color);
 }
 
-.clock-header.pomodoro-active button:focus {
+.clock-header.pomodoro-active button:focus,
+.clock-header.pomodoro-active button:active
+ {
   background-color: var(--pomodoro-primary-color);
   color: var(--pomodoro-secondary-color);
 }
@@ -72,6 +74,24 @@
 .clock-header.long-break-active button:focus {
   background-color: var(--long-break-primary-color);
   color: var(--long-break-secondary-color);
+}
+
+/* Applying to CSS to button */
+#pomodoro-active-button{
+  background-color: var(--pomodoro-primary-color);
+  color: var(--pomodoro-secondary-color);
+  /* border-bottom: 2px solid red; */
+}
+
+#short-break-active-button{
+  background-color: var(--short-break-primary-color);
+  color: var(--short-break-secondary-color);
+  /* border-bottom: 2px solid red; */
+}
+#long-break-active-button{
+  background-color: var(--long-break-primary-color);
+  color: var(--long-break-secondary-color);
+  /* border-bottom: 2px solid red; */
 }
 
 /* Applying CSS to clock time when particular clock is active */
