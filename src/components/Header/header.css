@@ -1,0 +1,50 @@
+.header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo-text {
+  font-family: var(--header-logo-text-font-family);
+  font-weight: 900;
+}
+
+.header-logo-text.pomodoro-active {
+  color: rgba(255, 255, 255, 1);
+}
+
+.header-logo-text.short-break-active {
+  color: rgb(148, 148, 148);
+}
+
+.header-logo-text.long-break-active {
+  color: rgb(173, 224, 233);
+}
+.nav-list {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+  align-items: center;
+}
+
+.nav-list-link {
+  text-decoration: none;
+  /* color: var(--nav-list-link-color); */
+  font-family: var(--nav-list-link-font-family);
+}
+
+/* Applying CSS to nav-list-item a for particular clock active */
+
+.nav-list-link.pomodoro-active{
+    color: var(--pomodoro-primary-color);
+}
+
+.nav-list-link.short-break-active{
+    color: var(--short-break-primary-color);
+}
+
+.nav-list-link.long-break-active{
+    color: var(--long-break-primary-color);
+}

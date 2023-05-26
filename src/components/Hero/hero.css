@@ -1,0 +1,130 @@
+.hero {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-direction: column;
+  /* padding: 0 1rem; */
+}
+
+.clock {
+  /* border: 1px solid black; */
+
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  /* padding: 1rem; */
+}
+
+.time-to-focus {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-family: var(--time-to-focus-font-family);
+  text-decoration: underline;
+}
+
+.clock-header button {
+  padding: 1rem;
+  /* width: 120px;s */
+  font-size: 1.2rem;
+  background-color: transparent;
+  /* border: 1px solid black; */
+  transition: 500ms ease;
+  border-radius: 0.25rem;
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+/* remove border from clock header's first and last child so middle can't get fat */
+.clock-header button:first-child {
+  border-right: none;
+}
+
+.clock-header button:last-child {
+  border-left: none;
+}
+
+/* Applying CSS to clock header when particular clock is active */
+.clock-header.pomodoro-active button {
+  color: var(--pomodoro-primary-color);
+}
+
+.clock-header.short-break-active button {
+  color: var(--short-break-primary-color);
+}
+.clock-header.long-break-active button {
+  color: var(--long-break-primary-color);
+}
+
+.clock-header.pomodoro-active button:focus {
+  background-color: var(--pomodoro-primary-color);
+  color: var(--pomodoro-secondary-color);
+}
+.clock-header.short-break-active button:focus {
+  background-color: var(--short-break-primary-color);
+  color: var(--short-break-secondary-color);
+}
+.clock-header.long-break-active button:focus {
+  background-color: var(--long-break-primary-color);
+  color: var(--long-break-secondary-color);
+}
+
+/* Applying CSS to clock time when particular clock is active */
+.clock-time.pomodoro-active {
+  color: var(--pomodoro-primary-color);
+}
+.clock-time.short-break-active {
+  color: var(--short-break-primary-color);
+}
+.clock-time.long-break-active {
+  color: var(--long-break-primary-color);
+}
+
+/* Applying CSS to footer button when particular clock is active */
+.clock-footer.pomodoro-active button {
+  background-color: var(--pomodoro-primary-color);
+  color: var(--pomodoro-secondary-color);
+}
+.clock-footer.short-break-active button {
+  background-color: var(--short-break-primary-color);
+  color: var(--short-break-secondary-color);
+}
+.clock-footer.long-break-active button {
+  background-color: var(--long-break-primary-color);
+  color: var(--long-break-secondary-color);
+}
+
+.clock-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-body strong {
+  font-size: 5rem;
+  font-family: var(--clock-time-font-family);
+  font-weight: 900;
+}
+
+.clock-footer {
+  display: flex;
+  gap: 0.5rem;
+}
+.clock-footer button {
+  width: 100%;
+  padding: 1rem;
+  /* width: 120px;s */
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: 1px solid black;
+  transition: 500ms ease;
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.55) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.35) 0px 18px 36px -18px inset;
+  border-radius: 0.25rem;
+}

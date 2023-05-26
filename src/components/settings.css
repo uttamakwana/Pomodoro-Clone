@@ -1,0 +1,60 @@
+.settings {
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  /* width: 400px; */
+  width: 400px;
+  /* height: 500pxs; */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: whitesmoke;
+  border-radius: 0.25rem;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  transition: 500ms ease;
+  color: #242424;
+  z-index: 20;
+}
+
+#close-settings-btn {
+  position: absolute;
+  top: 2%;
+  font-size: 1.5rem;
+  right: 5%;
+  cursor: pointer;
+  /* transform: translate(-5%, 5%); */
+}
+
+.settings.active {
+  top: 50%;
+}
+
+.settings-header h1 {
+  text-align: center;
+}
+
+.settings-header p {
+  text-align: center;
+}
+.settings-input-container input {
+  width: 100%;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  background-color: rgb(231, 231, 231);
+  border-radius: 0.25rem;
+  color: #242424;
+}
+
+.settings-footer button {
+  width: 200px;
+  border: none;
+  outline: none;
+  background-color: var(--pomodoro-bg);
+  color: var(--pomodoro-primary-color);
+  padding: 1rem;
+  border-radius: 0.25rem;
+}

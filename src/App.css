@@ -1,0 +1,16 @@
+.main{
+    transition: 1000ms ease;
+    height: 50vh;
+}
+
+.main.main-pomodoro{
+    background-color: var(--pomodoro-bg);
+}
+
+.main.main-short-break{
+    background-color: var(--short-break-bg);
+}
+
+.main.main-long-break{
+    background-color: var(--long-break-bg);
+}
