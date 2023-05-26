@@ -1,6 +1,8 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
+import { StateContext } from "../../../../StateProvider";
 
 const Todos = () => {
+  const { activeClock } = useContext(StateContext);
   const [todoData, setTodoData] = useState({
     id: "",
     titleData: "",
@@ -105,7 +107,15 @@ const Todos = () => {
       <main className="todos-container">
         {/* <h1 className="todos-heading">Add Todo</h1> */}
         <div className="todos">
-          <div className="todo-input-container">
+          <div
+            className={`todo-input-container ${
+              activeClock === "Pomodoro"
+                ? "pomodoro-active"
+                : activeClock === "ShortBreak"
+                ? "short-break-active"
+                : "long-break-active"
+            }`}
+          >
             <input
               type="text"
               name="title"
@@ -120,7 +130,15 @@ const Todos = () => {
               Title
             </label>
           </div>
-          <div className="todo-input-container">
+          <div
+            className={`todo-input-container ${
+              activeClock === "Pomodoro"
+                ? "pomodoro-active"
+                : activeClock === "ShortBreak"
+                ? "short-break-active"
+                : "long-break-active"
+            }`}
+          >
             <input
               type="text"
               name="description"
@@ -135,25 +153,47 @@ const Todos = () => {
               Description
             </label>
           </div>
-          <div className="todo-input-container">
+          <div
+            className={`todo-input-container${
+              activeClock === "Pomodoro"
+                ? "pomodoro-active"
+                : activeClock === "ShortBreak"
+                ? "short-break-active"
+                : "long-break-active"
+            }`}
+          >
             <label htmlFor="priority">Priority</label>
-            <select
-              name="priority"
-              id="priority"
-              value={`${priority ? priority : "Priority"}`}
-              style={{fontWeight: "300", fontSize: "1rem", fontFamily: "Source Sans Pro"}}
-              onChange={(e) => {
-                setPriority(e.target.value);
-              }}
+            <div
+              className={`todo-input-container priority-container ${
+                activeClock === "Pomodoro"
+                  ? "pomodoro-active"
+                  : activeClock === "ShortBreak"
+                  ? "short-break-active"
+                  : "long-break-active"
+              }`}
             >
-              <option value="A" defaultValue={"A"}>
-                Priority
-              </option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-            </select>
+              <select
+                name="priority"
+                id="priority"
+                value={`${priority ? priority : "Priority"}`}
+                style={{
+                  fontWeight: "300",
+                  fontSize: "1rem",
+                  fontFamily: "Source Sans Pro",
+                }}
+                onChange={(e) => {
+                  setPriority(e.target.value);
+                }}
+              >
+                <option value="A" defaultValue={"A"}>
+                  Priority
+                </option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+              </select>
+            </div>
           </div>
           <div className="todo-input-container">
             <label htmlFor="time">Time</label>
@@ -161,7 +201,10 @@ const Todos = () => {
               type="datetime-local"
               name="time"
               id="time"
+              // onFocus={() => document.getElementById("time").setAttribute("type").value  = "datetime-local"}
+              // onFocus="(this.type = 'text')"
               value={time}
+              placeholder=""
               onChange={(e) => {
                 setTime(e.target.value);
               }}

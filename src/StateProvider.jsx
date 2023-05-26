@@ -19,6 +19,8 @@ const StateProvider = ({ children }) => {
   const [clockStart, setClockStart] = useState(false);
   const [toggleSettings, setToggleSettings] = useState(false);
 
+
+
   useEffect(() => {
     let interval = null;
     let alarmMusic = new Audio(audio);

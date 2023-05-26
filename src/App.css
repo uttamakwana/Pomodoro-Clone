@@ -14,3 +14,8 @@
 .main.main-long-break{
     background-color: var(--long-break-bg);
 }
+
+.mainFirst{
+    display: flex;
+    flex-direction: column;
+}

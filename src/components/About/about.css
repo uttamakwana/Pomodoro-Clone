@@ -1,49 +1,58 @@
-.about{
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
+.about-container {
+  background-color: #242424;
+  color: whitesmoke;
+}
+.about {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  background-color: #242424;
+  color: whitesmoke;
 }
 
-.about-heading-text{
-    text-align: center;
-    margin-bottom: 1rem;
+.about-heading-text {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-.about-input-container{
-    margin-bottom: 1rem;
+.about-input-container {
+  margin-bottom: 1rem;
 }
 
-.about-input-container p strong span{
-    border-bottom: 2px solid red;
+.about-input-container p strong {
+  color: rgb(215, 210, 202);
+  font-size: 1.05rem;
 }
 
-.about-input-container p:last-child{
-    text-align:justify;
+.about-input-container p strong span {
+  border-bottom: 2px solid red;
 }
 
-.about-container footer{
-    background-color: rgb(249, 237, 213);
-    text-align: center;
-    padding: 2rem 0;
-    color: #242424;
+.about-input-container p:last-child {
+  text-align: justify;
 }
 
-.footer-links{
-    display: flex;
-    justify-content: center;
-    align-content:center;
-    gap: 1rem;
+.about-container footer {
+  background-color: rgb(253, 244, 227);
+  text-align: center;
+  padding: 2rem 0;
+  color: #242424;
 }
 
-.footer-links a img{
-    width: 40px;
-    height: 40px;
-    transition: 500ms ease;
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 1rem;
+}
+
+.footer-links a img {
+  width: 40px;
+  height: 40px;
+  transition: 500ms ease;
 }
 
 .footer-links a img:hover,
-.footer-links a img:focus
-.footer-links a img:active
-{
-    scale: 1.1;
+.footer-links a img:focus .footer-links a img:active {
+  scale: 1.1;
 }

@@ -10,7 +10,7 @@ import Settings from "./components/Settings";
 function App() {
   const { activeClock, toggleSettings } = useContext(StateContext);
   return (
-    <main>
+    <main className="mainFirst">
       <main
         className={`main ${
           activeClock === "LongBreak"

@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import "./hero.css";
 import { StateContext } from "../../StateProvider";
+import clickSound from "../../assets/click.mp3";
+import clickSound2 from "../../assets/pause.mp3";
+import clickSound3 from "../../assets/reset.mp3";
+import tickingAudio from "../../assets/ticking.mp3";
 const Hero = () => {
   const {
     activeClock,
@@ -12,7 +16,7 @@ const Hero = () => {
     longBreakTime,
     clockStart,
     setClockStart,
-    toggleSettings
+    toggleSettings,
   } = useContext(StateContext);
 
   const getTime = (time) => {
@@ -22,6 +26,10 @@ const Hero = () => {
       seconds < 10 ? `0${seconds}` : seconds
     }`;
   };
+
+  const soundOnStart = new Audio(clickSound);
+  const soundOnPause = new Audio(clickSound2);
+  const soundOnReset = new Audio(clickSound3);
   return (
     <section className="hero">
       <div className="clock">
@@ -74,7 +82,9 @@ const Hero = () => {
                   : "long-break-active"
               }`}
             >
-              {!toggleSettings && activeClock === "Pomodoro" ? getTime(time) : getTime(pomodoroTime)}
+              {!toggleSettings && activeClock === "Pomodoro"
+                ? getTime(time)
+                : getTime(pomodoroTime)}
             </strong>
           )}
           {activeClock === "ShortBreak" && (
@@ -115,9 +125,17 @@ const Hero = () => {
         >
           {clockStart ? (
             <>
-              <button onClick={() => setClockStart(false)}>Pause</button>
               <button
                 onClick={() => {
+                  setClockStart(false);
+                  soundOnPause.play();
+                }}
+              >
+                Pause
+              </button>
+              <button
+                onClick={() => {
+                  soundOnReset.play();
                   if (activeClock === "Pomodoro") {
                     setTime(pomodoroTime);
                     setClockStart(false);
@@ -136,7 +154,14 @@ const Hero = () => {
           ) : (
             <button
               onClick={() => {
+                soundOnStart.play();
                 setClockStart(true);
+                // Ticking sound of clock
+                // setTimeout(() => {
+                //   const ticking = new Audio(tickingAudio);
+                //   ticking.play();
+                //   ticking.volume = 0.2;
+                // }, 3000);
               }}
             >
               Start
@@ -144,7 +169,19 @@ const Hero = () => {
           )}
         </div>
       </div>
-      {clockStart ? <p className="time-to-focus"><strong>{activeClock === "Pomodoro" ? "Time to focus!✍️" : activeClock === "ShortBreak" ? "Time for a healthy break!😌" : "Time for a long break!🍴"}</strong></p> : ''}
+      {clockStart ? (
+        <p className="time-to-focus">
+          <strong>
+            {activeClock === "Pomodoro"
+              ? "Time to focus!✍️"
+              : activeClock === "ShortBreak"
+              ? "Time for a healthy break!😌"
+              : "Time for a long break!🍴"}
+          </strong>
+        </p>
+      ) : (
+        ""
+      )}
     </section>
   );
 };

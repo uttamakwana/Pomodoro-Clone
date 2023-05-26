@@ -31,6 +31,7 @@ const Header = () => {
               }`}
               onClick={() => {setToggleSettings(true); window.scroll(100, 100)}}
             >
+              {/* <img width="30" height="30" src="https://img.icons8.com/color/48/apple-settings.png" alt="apple-settings"/> */}
               Settings
             </a>
           </li>

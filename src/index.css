@@ -24,7 +24,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --pomodoro-bg: #ff2e63;
+  --pomodoro-bg: #4C4C6D;
   --pomodoro-primary-color: rgba(255, 255, 255, 1);
   --pomodoro-secondary-color: #242424;
   --short-break-primary-color: rgb(148, 148, 148);
@@ -51,6 +51,7 @@ html {
 
 .main {
   background-color: var(--pomodoro-bg);
+  /* background-color: #364f6b; */
 }
 
 #blurHeader,
@@ -71,8 +72,8 @@ html {
 }
 
 .my-todos {
-    transition: 1000ms ease;
-    background-color: #242424;
+  transition: 1000ms ease;
+  background-color: #242424;
 }
 .my-todos h1 {
   width: 100%;
@@ -96,8 +97,60 @@ html {
   background-color: var(--long-break-bg);
 }
 
-
-#priority{
+#priority {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 200;
 }
+
+/* Todos component was overflowing somewhere so I have some CSS for landscape and portrait */
+@media (orientation: landscape) {
+  .main {
+    height: 60vh;
+  }
+}
+
+@media (orientation: portrait) {
+  .main {
+    height: 60vh;
+  }
+}
+
+@media (orientation: portrait) and (min-height: 780px) and (max-height: 1200px) {
+  .main {
+    height: 45vh;
+  }
+}
+@media (orientation: portrait) and (min-height: 780px) and (max-height: 1200px) {
+  .main {
+    height: 45vh;
+  }
+}
+
+@media (orientation: portrait) and (min-height: 1200px) and (max-height: 1400px) {
+  .main {
+    height: 35vh;
+  }
+}
+@media (orientation: landscape) and (max-height: 570px) {
+  .main {
+    height: 100vh;
+  }
+}
+@media (orientation: landscape) and (min-height: 571px) and (max-height: 900px) {
+  .main {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 321px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 300px) {
+  html {
+    font-size: 10px;
+  }
+}
+
